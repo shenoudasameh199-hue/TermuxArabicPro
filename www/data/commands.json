@@ -1,0 +1,22 @@
+[
+  {
+    "title": "تحديث الحزم",
+    "command": "pkg update && pkg upgrade -y",
+    "description": "يقوم بتحديث جميع حزم Termux."
+  },
+  {
+    "title": "تثبيت Git",
+    "command": "pkg install git",
+    "description": "يثبت أداة Git لإدارة المشاريع."
+  },
+  {
+    "title": "تثبيت Python",
+    "command": "pkg install python",
+    "description": "يثبت لغة Python على Termux."
+  },
+  {
+    "title": "تثبيت Node.js",
+    "command": "pkg install nodejs",
+    "description": "يثبت بيئة Node.js."
+  }
+]
