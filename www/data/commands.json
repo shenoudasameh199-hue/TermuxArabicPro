@@ -1,22 +1,30 @@
 [
   {
+    "id": 1,
+    "category": "Termux",
     "title": "تحديث الحزم",
     "command": "pkg update && pkg upgrade -y",
-    "description": "يقوم بتحديث جميع حزم Termux."
+    "description": "يقوم بتحديث جميع الحزم إلى أحدث إصدار."
   },
   {
+    "id": 2,
+    "category": "Termux",
     "title": "تثبيت Git",
     "command": "pkg install git",
-    "description": "يثبت أداة Git لإدارة المشاريع."
+    "description": "يثبت Git لإدارة المشاريع."
   },
   {
+    "id": 3,
+    "category": "Python",
     "title": "تثبيت Python",
     "command": "pkg install python",
-    "description": "يثبت لغة Python على Termux."
+    "description": "يثبت Python على Termux."
   },
   {
-    "title": "تثبيت Node.js",
-    "command": "pkg install nodejs",
-    "description": "يثبت بيئة Node.js."
+    "id": 4,
+    "category": "Network",
+    "title": "عرض عنوان IP",
+    "command": "ip addr",
+    "description": "يعرض جميع عناوين الشبكة."
   }
 ]
