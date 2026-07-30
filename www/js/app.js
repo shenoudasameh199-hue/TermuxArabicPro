@@ -1,47 +1,69 @@
-document.addEventListener("DOMContentLoaded", async () => {
+let allCommands = [];
 
-    const app = document.getElementById("app");
+async function loadData(){
 
-    try {
+const res = await fetch("data/commands.json");
 
-        const response = await fetch("data/commands.json");
-        const commands = await response.json();
+allCommands = await res.json();
 
-        commands.forEach(item => {
+show(allCommands);
 
-            const card = document.createElement("div");
+}
 
-            card.className = "card";
+function show(data){
 
-            card.innerHTML = `
-                <h3>${item.title}</h3>
-                <p>${item.description}</p>
+const app=document.getElementById("app");
 
-                <pre>${item.command}</pre>
+app.innerHTML="";
 
-                <button onclick="copyCommand('${item.command}')">
-                    📋 نسخ
-                </button>
-            `;
+data.forEach(item=>{
 
-            app.appendChild(card);
+app.innerHTML+=`
+<div class="card">
+<h3>${item.title}</h3>
+<p>${item.description}</p>
 
-        });
+<pre>${item.command}</pre>
 
-    } catch (err) {
+<button onclick="copy('${item.command}')">
+📋 نسخ
+</button>
 
-        app.innerHTML = "<h2>حدث خطأ أثناء تحميل البيانات</h2>";
-
-        console.log(err);
-
-    }
+</div>
+`;
 
 });
 
-function copyCommand(text){
+}
 
-    navigator.clipboard.writeText(text);
+function copy(text){
 
-    alert("تم نسخ الأمر ✅");
+navigator.clipboard.writeText(text);
+
+alert("تم النسخ ✅");
 
 }
+
+document
+.getElementById("search")
+.addEventListener("input",e=>{
+
+const value=e.target.value.toLowerCase();
+
+show(
+
+allCommands.filter(x=>
+
+x.title.toLowerCase().includes(value)
+
+||
+
+x.description.toLowerCase().includes(value)
+
+)
+
+);
+
+});
+
+loadData();
