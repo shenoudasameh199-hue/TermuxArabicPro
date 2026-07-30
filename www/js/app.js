@@ -78,3 +78,7 @@ document.getElementById("content").innerHTML = html;
 }
 
 loadPage("home");
+touch www/pages/search.html
+touch www/pages/favorites.html
+touch www/pages/settings.html
+<h2>قريبًا...</h2>
